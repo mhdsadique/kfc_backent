@@ -43,18 +43,20 @@ productRouter.delete("/delete/:id",async(req,res)=>{
     }
 })
 productRouter.put("/put/:id",async(req,res)=>{
+    const payload=req.body
     const noteID=req.params.id
     try{
       await ProductModel.findByIdAndUpdate({_id:noteID})
-            res.send({msg:`product (${noteID}) has been UPDATED `})
+            res.send({msg:`product (${noteID}) has been UPDATED `},payload)
     }catch(err){
         res.send({msg:"Prtoduct note UPDATED",err:err.message})
     }
 })
 productRouter.patch("/patch/:id",async(req,res)=>{
+    const payload=req.body
     const noteID=req.params.id
     try{
-      await ProductModel.findByIdAndUpdate({_id:noteID})
+      await ProductModel.findByIdAndUpdate({_id:noteID},payload)
             res.send({msg:`product (${noteID}) has been UPDATED `})
     }catch(err){
         res.send({msg:"Prtoduct note UPDATED",err:err.message})
