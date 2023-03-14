@@ -7,8 +7,8 @@ const {userRouter}=require("./routes/user")
 const {productRouter}=require("./routes/product")
 const {authenticate}=require("./middlewear/authenticate")
 const app=express()
-app.use(express.json())
 app.use(cors())
+app.use(express.json())
 
 app.get("/",(req,res)=>{
     res.send("HOME PAGE kfc")
