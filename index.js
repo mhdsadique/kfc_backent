@@ -1,14 +1,14 @@
 
 const express=require("express")
 require('dotenv').config()
-var cors = require('cors')
 const { connection } = require("./db/db")
 const {userRouter}=require("./routes/user")
 const {productRouter}=require("./routes/product")
 const {authenticate}=require("./middlewear/authenticate")
+var cors = require('cors')
 const app=express()
-app.use(cors())
 app.use(express.json())
+app.use(cors())
 
 app.get("/",(req,res)=>{
     res.send("HOME PAGE kfc")
