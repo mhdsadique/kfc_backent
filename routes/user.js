@@ -7,7 +7,7 @@ const bcrypt = require('bcrypt');
 const userRouter=express.Router()
 
 userRouter.post("/register",async(req,res)=>{
-    const {name,email,password}=req.body
+    const {lastName,firstName,email,password}=req.body
     try{
         bcrypt.hash(password, 5,async(err, hash) =>{
             if(err){
@@ -15,7 +15,7 @@ userRouter.post("/register",async(req,res)=>{
             }
             else{
 
-                const user =new UserModel({name,email,password:hash})
+                const user =new UserModel({lastName,firstName,email,password:hash})
                 await user.save()
                 res.send({msg:"New Users Has Been registered"})
             }

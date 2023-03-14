@@ -8,7 +8,7 @@ const {productRouter}=require("./routes/product")
 const {authenticate}=require("./middlewear/authenticate")
 const app=express()
 app.use(express.json())
-var cors = require('cors')
+app.use(cors())
 
 app.get("/",(req,res)=>{
     res.send("HOME PAGE kfc")
