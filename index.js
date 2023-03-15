@@ -9,7 +9,6 @@ const {authenticate}=require("./middlewear/authenticate")
 const app=express()
 app.use(express.json())
 app.use(cors())
-
 app.get("/",(req,res)=>{
     res.send("HOME PAGE kfc")
 })
@@ -21,7 +20,6 @@ app.listen(process.env.port,async()=>{
     try{
      await  connection
     console.log(`server connected to DB`)
-
     }catch{
         console.log("can not connect to db")
     }
