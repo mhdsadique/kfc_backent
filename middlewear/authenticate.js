@@ -10,11 +10,11 @@ const authenticate=(req,res,next)=>{
              req.body.user=decoded.userID
                 next()
             }else{
-                res.send({msg:"Please Login",err:err})
+                res.send({msg:"Please Login First",err:err})
             }
         })
     }else{
-        res.send({msg:"Please Login"})
+        res.send({msg:"Please Login First didnt get you"})
 
     }
 }
