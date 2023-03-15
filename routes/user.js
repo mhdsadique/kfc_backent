@@ -17,6 +17,7 @@ userRouter.post("/register",async(req,res)=>{
 
                 const user =new UserModel({lastName,firstName,email,password:hash})
                 await user.save()
+                // .insertOne()
                 res.send({msg:"New Users Has Been registered"})
             }
         });
